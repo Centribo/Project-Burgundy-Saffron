@@ -4,7 +4,6 @@ using System.Collections;
 public class ButtonController : MonoBehaviour {
 
 	public bool isGazedAt = false;
-	public GameObject spawnPoint;
 	public Room.RoomType solvedRoom;
 
 	// Use this for initialization

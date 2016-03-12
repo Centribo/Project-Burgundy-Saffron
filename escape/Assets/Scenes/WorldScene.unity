@@ -407,6 +407,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 413036789}
+  - 114: {fileID: 413036790}
   m_Layer: 0
   m_Name: TileManager
   m_TagString: Untagged
@@ -421,11 +422,24 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 413036788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.21, y: 0, z: -0.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1690641227}
   m_RootOrder: 3
+--- !u!114 &413036790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 413036788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da8eefbeee2562449abfeef3fc82c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilePrefab: {fileID: 176004, guid: b4a4ee22b581e6f459d31425c2f8cf34, type: 2}
+  currentIndex: 0
 --- !u!1 &429262558
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +606,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 554582470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.61, y: 2.4, z: 0.1}
+  m_LocalPosition: {x: 3.61, y: 2.4, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1690641227}
@@ -3249,6 +3263,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1260845311}
   m_RootOrder: 0
+--- !u!1 &1608635987 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 175374, guid: f7783d2fdc7a36143b7744f0d13a506d, type: 2}
+  m_PrefabInternal: {fileID: 1729672058}
+--- !u!114 &1608635988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1608635987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c633c146050ecb4c9a6f5d45d9cc82c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGazedAt: 0
+  solvedRoom: 2
 --- !u!1 &1690641226
 GameObject:
   m_ObjectHideFlags: 0
@@ -3337,7 +3368,36 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.25
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11483606, guid: f7783d2fdc7a36143b7744f0d13a506d, type: 2}
+      propertyPath: solvedRoom
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471628, guid: f7783d2fdc7a36143b7744f0d13a506d, type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1608635988}
+    - target: {fileID: 11471628, guid: f7783d2fdc7a36143b7744f0d13a506d, type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetGazedAt
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471628, guid: f7783d2fdc7a36143b7744f0d13a506d, type: 2}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1608635988}
+    - target: {fileID: 11471628, guid: f7783d2fdc7a36143b7744f0d13a506d, type: 2}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetGazedAt
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471628, guid: f7783d2fdc7a36143b7744f0d13a506d, type: 2}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1608635988}
+    - target: {fileID: 11471628, guid: f7783d2fdc7a36143b7744f0d13a506d, type: 2}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickButton
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11483606, guid: f7783d2fdc7a36143b7744f0d13a506d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f7783d2fdc7a36143b7744f0d13a506d, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1729672059 stripped
@@ -3422,7 +3482,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 433264, guid: 7b5b1d212f86c4d46a6088e5bfe8f1d9, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 433264, guid: 7b5b1d212f86c4d46a6088e5bfe8f1d9, type: 2}
       propertyPath: m_LocalRotation.x
