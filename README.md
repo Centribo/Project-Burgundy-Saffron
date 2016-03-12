@@ -1,7 +1,20 @@
 # Project-Burgundy-Saffron
 
-# TODO:
+## TODO:
 
-## Max:
+### Max:
 
-## Adam:
+* Briefcase
+* "Floorless room tiles"
+* Generic button
+* Generic rooms
+* Table
+* Chair
+* Screen
+
+### Adam:
+
+* Get menu working
+* Get syncing of times working
+* Start work on GameManager
+* Start work on puzzles
