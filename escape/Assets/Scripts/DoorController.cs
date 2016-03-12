@@ -23,6 +23,7 @@ public class DoorController : MonoBehaviour {
 
 	public void ClickDoor(){
 		PlayerController.Instance.transform.position = spawnPoint.transform.position;
+		GetComponent<CardboardAudioSource>().Play();
 	}
 
 	public void UpdateVisuals(){
