@@ -16,10 +16,8 @@ public class PlayerController : MonoBehaviour {
 	public enum PlayerType {A, B}; //Types of players
 
 	//Public variables
-	
 	public PlayerType player;
-
-
+	public Room.RoomType currentRoom;
 
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);

@@ -45,8 +45,14 @@ public class GameManager : MonoBehaviour {
 
 				if(secondsLeft <= 0){
 					SceneManager.LoadScene("WorldScene");
+					state = State.Playing;
 					ResetTimer();
 					//MovePlayer
+					if(PlayerController.Instance.player == PlayerController.PlayerType.A){
+						PlayerController.Instance.currentRoom = Room.RoomType.Control;
+					} else if(PlayerController.Instance.player == PlayerController.PlayerType.B){
+						PlayerController.Instance.currentRoom = Room.RoomType.Briefcase;
+					}
 				}
 			break;
 			case State.Playing:
