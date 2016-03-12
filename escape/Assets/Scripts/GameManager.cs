@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System;
 
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public enum State {MainMenu, Syncing, Playing}; //What state is the game in right now?
+	public enum State {MainMenu, CountingDown, Playing}; //What state is the game in right now?
 
 	//Public variables
 	public State state = State.MainMenu;
@@ -33,6 +34,17 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		switch(state){
+			case State.MainMenu:
+				//Do nothing, most of this is handled in GUI events
+			break;
+			case State.CountingDown:
+				GameObject.Find("CountdownText").GetComponent<Text>().text = "" + (10 - GetTime());
+			break;
+			case State.Playing:
+
+			break;
+		}
 	}
 
 	public void ResetTimer(){
@@ -49,18 +61,36 @@ public class GameManager : MonoBehaviour {
 
 	public void StartPlayerA(){
 		PlayerController.Instance.player = PlayerController.PlayerType.A;
+		StartCountdown();
+		GameObject.Find("HelpText").GetComponent<Text>().text = "Your objective is to help each other open the briefcase.\nLook and use the button to interact with objects.\nYou will be in the control room.";
+
 
 		ResetTimer();
 	}
 
 	public void StartPlayerB(){
 		PlayerController.Instance.player = PlayerController.PlayerType.B;
+		StartCountdown();
+		GameObject.Find("HelpText").GetComponent<Text>().text = "Your objective is to help each other open the briefcase.\nLook and use the button to interact with objects.\nYou will be in the room with the briefcase.";
 
 		ResetTimer();
 	}
 
-	private void StartCountdown(){
-		
+	void StartCountdown(){
+		Transform canvasParent = GameObject.Find("Canvas").transform;
+
+		for(int i = canvasParent.childCount-1; i >= 0; i--){
+			if(canvasParent.GetChild(i).name != "CountdownText"){
+				if(canvasParent.GetChild(i).name == "HelpText"){
+					canvasParent.GetChild(i).gameObject.SetActive(true);
+				} else {
+					canvasParent.GetChild(i).gameObject.SetActive(false);
+				}
+			}
+		}
+
+		ResetTimer();
+		state = State.CountingDown;
 	}
 
 }
