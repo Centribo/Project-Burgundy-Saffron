@@ -11,6 +11,10 @@ public class TestScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log(GameObject.Find("Head").GetComponent<CardboardHead>().Gaze);
-		Debug.Log(Cardboard.SDK.Triggered);
+		//Debug.Log(Cardboard.SDK.Triggered);
+	}
+
+	public void Meme(){
+		Debug.Log("Memerino!");
 	}
 }
