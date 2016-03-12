@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11408106}
   - 64: {fileID: 6420718}
   - 114: {fileID: 11499948}
+  - 114: {fileID: 11402002}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -77,6 +78,31 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: d955e06190e41a549a58cda99a1c598b, type: 3}
+--- !u!114 &11402002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbca64e524ea44f9b26142ec59aca8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directivityAlpha: 0
+  directivitySharpness: 1
+  gainDb: 0
+  occlusionEnabled: 0
+  playOnAwake: 0
+  rolloffMode: 0
+  sourceClip: {fileID: 8300000, guid: 02f75282c46d8c5418e11b4d6b7e1ba1, type: 3}
+  sourceLoop: 0
+  sourceMute: 0
+  sourcePitch: 1
+  sourceVolume: 1
+  sourceMaxDistance: 500
+  sourceMinDistance: 0
+  hrtfEnabled: 1
 --- !u!114 &11408106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGazedAt: 0
+  spawnPoint: {fileID: 0}
 --- !u!114 &11499948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,6 +190,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sourceClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 02f75282c46d8c5418e11b4d6b7e1ba1, type: 3}
+    - target: {fileID: 0}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

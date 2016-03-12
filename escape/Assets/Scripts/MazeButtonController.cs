@@ -24,6 +24,7 @@ public class MazeButtonController : MonoBehaviour {
 	public void ClickButton(){
 		if(TileManager.Instance.IsFinishedMaze()){
 			GameManager.Instance.SetSolved(solvedRoom, true);
+			GetComponent<CardboardAudioSource>().Play();
 		}
 	}
 
