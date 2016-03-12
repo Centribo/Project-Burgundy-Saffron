@@ -259,8 +259,6 @@ public class GazeInputModule : BaseInputModule {
       ExecuteEvents.ExecuteHierarchy(go, pointerData, ExecuteEvents.pointerDownHandler)
         ?? ExecuteEvents.GetEventHandler<IPointerClickHandler>(go);
 
-    Debug.Log("Hello?");
-
     // Save the drag handler as well
     pointerData.pointerDrag = ExecuteEvents.GetEventHandler<IDragHandler>(go);
     if (pointerData.pointerDrag != null && !Cardboard.SDK.TapIsTrigger) {
