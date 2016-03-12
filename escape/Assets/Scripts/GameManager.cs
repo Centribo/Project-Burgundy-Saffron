@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour {
 
 	//Public variables
 	public State state = State.MainMenu;
-	public int MaxTime; //Time that the players have to escape/win the game
-	public 
+	public int maxTime; //Time that the players have to escape/win the game
+	public bool[] puzzlesSolved = new bool[3];
 
 	//Private variables
 	DateTime initialTime;
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour {
 				//Do nothing, most of this is handled in GUI events
 			break;
 			case State.CountingDown:
-				int secondsLeft = 10 - GetTime();
+				int secondsLeft = 2 - GetTime();
 				GameObject.Find("CountdownText").GetComponent<Text>().text = "" + (secondsLeft);
 
 				if(secondsLeft <= 0){
@@ -60,6 +60,11 @@ public class GameManager : MonoBehaviour {
 
 			break;
 		}
+
+		for(int i = 0; i < 3; i++){
+			Debug.Log("i: " + i + " " + puzzlesSolved[i]);	
+		}
+		
 	}
 
 	public void ResetTimer(){
@@ -67,7 +72,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public int GetTimeRemaining(){ //Returns, in seconds, the time remaining before the players lose
-		return MaxTime - GetTime();
+		return maxTime - GetTime();
 	}
 
 	public int GetTime(){ //Returns time, in seconds, since timer was started
@@ -89,6 +94,18 @@ public class GameManager : MonoBehaviour {
 		GameObject.Find("HelpText").GetComponent<Text>().text = "Your objective is to help each other open the briefcase.\nLook and use the button to interact with objects.\nYou will be in the room with the briefcase.";
 
 		ResetTimer();
+	}
+
+	public void SetSolved(Room.RoomType room, bool isSolved){
+		switch(room){
+			case Room.RoomType.Riddle:
+				puzzlesSolved[2] = isSolved;
+			break;
+		}
+	}
+
+	public void LoseGame(){
+		Debug.Log("Game Lost!");
 	}
 
 	void StartCountdown(){

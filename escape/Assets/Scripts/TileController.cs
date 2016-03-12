@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 using System.Collections;
 
-public class TestScript : MonoBehaviour {
+public class TileController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -12,9 +11,5 @@ public class TestScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-	}
-
-	public void Same(){
-		Debug.Log("Briefcase");
 	}
 }

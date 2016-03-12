@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DoorController : MonoBehaviour {
+public class ButtonController : MonoBehaviour {
 
 	public bool isGazedAt = false;
+	public GameObject spawnPoint;
+	public Room.RoomType solvedRoom;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +20,10 @@ public class DoorController : MonoBehaviour {
 	public void SetGazedAt(bool gaze){
 		isGazedAt = gaze;
 		UpdateVisuals();
+	}
+
+	public void ClickButton(){
+		GameManager.Instance.SetSolved(solvedRoom, true);
 	}
 
 	public void UpdateVisuals(){
