@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
 	//Public variables
 	public State state = State.MainMenu;
 	public int MaxTime; //Time that the players have to escape/win the game
+	public 
 
 	//Private variables
 	DateTime initialTime;
