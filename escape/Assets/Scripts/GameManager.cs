@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
 
@@ -39,7 +40,14 @@ public class GameManager : MonoBehaviour {
 				//Do nothing, most of this is handled in GUI events
 			break;
 			case State.CountingDown:
-				GameObject.Find("CountdownText").GetComponent<Text>().text = "" + (10 - GetTime());
+				int secondsLeft = 10 - GetTime();
+				GameObject.Find("CountdownText").GetComponent<Text>().text = "" + (secondsLeft);
+
+				if(secondsLeft <= 0){
+					SceneManager.LoadScene("WorldScene");
+					ResetTimer();
+					//MovePlayer
+				}
 			break;
 			case State.Playing:
 
@@ -56,7 +64,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public int GetTime(){ //Returns time, in seconds, since timer was started
-		return DateTime.Now.Second - initialTime.Second;
+		return (DateTime.Now - initialTime).Seconds;
 	}
 
 	public void StartPlayerA(){
