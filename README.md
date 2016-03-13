@@ -4,17 +4,13 @@
 
 ### Max:
 
-* Briefcase
-* "Floorless room tiles"
-* Generic button
-* Generic rooms
-* Table
-* Chair
-* Screen
+* Podium
+* Find a name for the game
 
 ### Adam:
 
-* Get menu working
-* Get syncing of times working
-* Start work on GameManager
-* Start work on puzzles
+* Finish wire puzzle
+* Create podium control room images
+* Final puzzle/sequence after briefcase is opened
+* Move objects in riddle room
+* Sleep
