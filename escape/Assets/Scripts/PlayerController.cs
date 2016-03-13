@@ -73,6 +73,9 @@ public class PlayerController : MonoBehaviour {
 			lerpPecentage += lerpRate * Time.deltaTime;
 			lerpPecentage = Mathf.Clamp01(lerpPecentage);
 			transform.position = Vector3.Lerp(initialPos, lerpTarget, lerpPecentage);
+			if(Vector3.Distance(transform.position, lerpTarget) <= 0.01f){
+				isLerping = false;
+			}
 		}
 	}
 
