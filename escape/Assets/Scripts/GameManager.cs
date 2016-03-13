@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour {
 				//Do nothing, most of this is handled in GUI events
 			break;
 			case State.CountingDown:
-				int secondsLeft = 1 - GetTime();
+				int secondsLeft = 11 - GetTime();
 				GameObject.Find("CountdownText").GetComponent<Text>().text = "" + (secondsLeft);
 
 				if(secondsLeft <= 0){
