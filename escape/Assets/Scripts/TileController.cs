@@ -28,12 +28,14 @@ public class TileController : MonoBehaviour {
 			if(TileManager.Instance.ClickedCorrectTile(tileIndex)){
 				isActivated = true;
 				UpdateVisuals();
-				PlayerController.Instance.transform.position = transform.position + Vector3.up * 2.0f;
+				//PlayerController.Instance.transform.position = transform.position + Vector3.up * 2.0f;
+				PlayerController.Instance.LerpToLocation(transform.position + Vector3.up * 2.0f);
 			} else {
 				GameManager.Instance.LoseGame();
 			}
 		} else {
-			PlayerController.Instance.transform.position = transform.position + Vector3.up * 2.0f;
+			//PlayerController.Instance.transform.position = transform.position + Vector3.up * 2.0f;
+			PlayerController.Instance.LerpToLocation(transform.position + Vector3.up * 2.0f);
 		}
 		
 	}

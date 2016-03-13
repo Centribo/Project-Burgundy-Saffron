@@ -22,8 +22,15 @@ public class PlayerController : MonoBehaviour {
 
 	public GameObject screenFadingCanvas;
 	public float fadeRate = 1.5f;
-	public bool isFadingOut;
-	public bool isFadingIn;
+	public float lerpRate = 0.5f;
+
+	bool isFadingOut;
+	bool isFadingIn;
+
+	Vector3 initialPos;
+	Vector3 lerpTarget;
+	float lerpPecentage;
+	bool isLerping;
 
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
@@ -38,6 +45,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		HandleFading();
+		HandleLerping();
 	}
 
 	public void FadeToWhite(){
@@ -49,8 +57,23 @@ public class PlayerController : MonoBehaviour {
 		isFadingIn = true;
 	}
 
+	public void LerpToLocation(Vector3 location){
+		initialPos = transform.position;
+		lerpTarget = location;
+		lerpPecentage = 0;
+		isLerping = true;
+	}
+
 	void OnLevelWasLoaded(int level){
 		FadeInFromWhite();
+	}
+
+	void HandleLerping(){
+		if(isLerping){
+			lerpPecentage += lerpRate * Time.deltaTime;
+			lerpPecentage = Mathf.Clamp01(lerpPecentage);
+			transform.position = Vector3.Lerp(initialPos, lerpTarget, lerpPecentage);
+		}
 	}
 
 	void HandleFading(){
