@@ -19,9 +19,12 @@ public class GameManager : MonoBehaviour {
 	public enum State {MainMenu, CountingDown, Playing}; //What state is the game in right now?
 
 	//Public variables
+	public Material BlackSkybox;
+	public Material NatureSkybox;
 	public State state = State.MainMenu;
 	public int maxTime; //Time that the players have to escape/win the game
 	public bool[] puzzlesSolved = new bool[3];
+	public bool isReadyToEnd = false;
 
 	//Private variables
 	DateTime initialTime;
@@ -41,26 +44,28 @@ public class GameManager : MonoBehaviour {
 				//Do nothing, most of this is handled in GUI events
 			break;
 			case State.CountingDown:
-				int secondsLeft = 2 - GetTime();
+				int secondsLeft = 1 - GetTime();
 				GameObject.Find("CountdownText").GetComponent<Text>().text = "" + (secondsLeft);
 
 				if(secondsLeft <= 0){
-					SceneManager.LoadScene("WorldScene");
+					if(PlayerController.Instance.player == PlayerController.PlayerType.A){
+						SceneManager.LoadScene("PlayerAScene");
+					} else if(PlayerController.Instance.player == PlayerController.PlayerType.B){
+						SceneManager.LoadScene("PlayerBScene");
+					}
+					
+
 					state = State.Playing;
 					ResetTimer();
 					//MovePlayer
 					if(PlayerController.Instance.player == PlayerController.PlayerType.A){
 						PlayerController.Instance.currentRoom = Room.RoomType.Control;
-						PlayerController.Instance.transform.position = new Vector3(0, 2.441f, -0.9349999f);
+						PlayerController.Instance.transform.position = new Vector3(0, 2.441f, -11.9f);
 					} else if(PlayerController.Instance.player == PlayerController.PlayerType.B){
 						PlayerController.Instance.currentRoom = Room.RoomType.Briefcase;
-						PlayerController.Instance.transform.position = new Vector3(0, 2.441f, -11.9f);
-
+						PlayerController.Instance.transform.position = new Vector3(0, 2.441f, -0.9349999f);
 					}
 				}
-			break;
-			case State.Playing:
-
 			break;
 		}
 	}
@@ -80,14 +85,14 @@ public class GameManager : MonoBehaviour {
 	public void StartPlayerA(){
 		PlayerController.Instance.player = PlayerController.PlayerType.A;
 		StartCountdown();
-		GameObject.Find("HelpText").GetComponent<Text>().text = "Your objective is to help each other open the briefcase.\nLook and use the button to interact with objects.\nYou will be in the control room.";
+		GameObject.Find("HelpText").GetComponent<Text>().text = "Your are in the control room.\nYour partner is in the room with the briefcase, communicate with them to find the code and escape.\nLook at objects and press the button to interact with them.\n\nGood Luck!";
 		ResetTimer();
 	}
 
 	public void StartPlayerB(){
 		PlayerController.Instance.player = PlayerController.PlayerType.B;
 		StartCountdown();
-		GameObject.Find("HelpText").GetComponent<Text>().text = "Your objective is to help each other open the briefcase.\nLook and use the button to interact with objects.\nYou will be in the room with the briefcase.";
+		GameObject.Find("HelpText").GetComponent<Text>().text = "Your are with the briefcase.\nYour partner is in the control room, communicate with them to open the briefcase and escape.\nLook at objects and press the button to interact with them.\n\nGood Luck!";
 		ResetTimer();
 	}
 
@@ -118,6 +123,30 @@ public class GameManager : MonoBehaviour {
 
 	public void LoseGame(){
 		Debug.Log("Game Lost!");
+	}
+
+	public void SetReadyToFinish(bool ready){
+		isReadyToEnd = ready;
+	}
+
+	public bool GetReadyToFinish(){
+		return isReadyToEnd;
+	}
+
+	public void FinishGame(){
+		PlayerController.Instance.FadeToWhite();
+		StartCoroutine(LoadLevelAfterDelay(5.0f, "EndingScene"));
+		StartCoroutine(SetPlayerPosition(5.0f, new Vector3(0, 3, 0)));
+	}
+
+	IEnumerator LoadLevelAfterDelay(float delay, string level){
+		yield return new WaitForSeconds(delay);
+		SceneManager.LoadScene(level);
+	}
+
+	IEnumerator SetPlayerPosition(float delay, Vector3 position){
+		yield return new WaitForSeconds(delay);
+		PlayerController.Instance.transform.position = position;
 	}
 
 	void StartCountdown(){

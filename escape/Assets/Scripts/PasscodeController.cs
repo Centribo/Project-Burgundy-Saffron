@@ -70,6 +70,7 @@ public class PasscodeController : MonoBehaviour {
 			//If we get here, passcode is right
 			passcodeText.color = Color.green;
 			PlayCorrectSound();
+			GameManager.Instance.SetReadyToFinish(true);
 			isEntered = true;
 		}
 	}

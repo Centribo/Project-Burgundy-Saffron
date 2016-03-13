@@ -11,3 +11,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
   - enabled: 1
     path: Assets/Scenes/WorldScene.unity
+  - enabled: 1
+    path: Assets/Scenes/EndingScene.unity
+  - enabled: 1
+    path: Assets/Scenes/PlayerAScene.unity
+  - enabled: 1
+    path: Assets/Scenes/PlayerBScene.unity

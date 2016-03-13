@@ -6,8 +6,11 @@ public class DoorController : MonoBehaviour {
 	public bool isGazedAt = false;
 	public GameObject spawnPoint;
 
+	Color originalColor;
+
 	// Use this for initialization
 	void Start () {
+		originalColor = GetComponent<Renderer>().material.color;
 		UpdateVisuals();
 	}
 	
@@ -27,7 +30,7 @@ public class DoorController : MonoBehaviour {
 	}
 
 	public void UpdateVisuals(){
-		GetComponent<Renderer>().material.color = isGazedAt ? Color.yellow : Color.white;
+		GetComponent<Renderer>().material.color = isGazedAt ? Color.yellow : originalColor;
 	}
 
 

@@ -82,6 +82,7 @@ public class BriefcaseController : MonoBehaviour {
 			endGameCanvas.SetActive(true);
 
 			isOpened = true;
+			GameManager.Instance.SetReadyToFinish(true);
 			UpdateVisuals();
 		}
 	}

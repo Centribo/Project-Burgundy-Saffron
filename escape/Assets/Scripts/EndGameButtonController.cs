@@ -24,10 +24,9 @@ public class EndGameButtonController : MonoBehaviour {
 	}
 
 	public void ClickButton(){
-		if(PlayerController.Instance.player == PlayerController.PlayerType.A){
-			Debug.Log("Player A click");
-		} else if(PlayerController.Instance.player == PlayerController.PlayerType.A){
-			Debug.Log("Player B click");
+		if(GameManager.Instance.GetReadyToFinish()){
+			//End the game!
+			GameManager.Instance.FinishGame();
 		}
 	}
 
