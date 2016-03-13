@@ -51,9 +51,10 @@ public class GameManager : MonoBehaviour {
 					//MovePlayer
 					if(PlayerController.Instance.player == PlayerController.PlayerType.A){
 						PlayerController.Instance.currentRoom = Room.RoomType.Control;
+						PlayerController.Instance.transform.position = new Vector3(0, 2.441f, -0.9349999f);
 					} else if(PlayerController.Instance.player == PlayerController.PlayerType.B){
 						PlayerController.Instance.currentRoom = Room.RoomType.Briefcase;
-						PlayerController.Instance.transform.position = new Vector3(0, 2.441f, -0.9349999f);
+						PlayerController.Instance.transform.position = new Vector3(0, 2.441f, -11.9f);
 
 					}
 				}
@@ -80,8 +81,6 @@ public class GameManager : MonoBehaviour {
 		PlayerController.Instance.player = PlayerController.PlayerType.A;
 		StartCountdown();
 		GameObject.Find("HelpText").GetComponent<Text>().text = "Your objective is to help each other open the briefcase.\nLook and use the button to interact with objects.\nYou will be in the control room.";
-
-
 		ResetTimer();
 	}
 
@@ -89,7 +88,6 @@ public class GameManager : MonoBehaviour {
 		PlayerController.Instance.player = PlayerController.PlayerType.B;
 		StartCountdown();
 		GameObject.Find("HelpText").GetComponent<Text>().text = "Your objective is to help each other open the briefcase.\nLook and use the button to interact with objects.\nYou will be in the room with the briefcase.";
-
 		ResetTimer();
 	}
 
