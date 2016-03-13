@@ -7,8 +7,11 @@ public class RiddleObjectController : MonoBehaviour {
 	public bool isCorrectObject;
 	public Room.RoomType solvedRoom;
 
+	Color originalColor;
+
 	// Use this for initialization
 	void Start () {
+		originalColor = GetComponent<Renderer>().material.color;
 		UpdateVisuals();
 	}
 	
@@ -25,13 +28,14 @@ public class RiddleObjectController : MonoBehaviour {
 	public void ClickButton(){
 		if(isCorrectObject){
 			GameManager.Instance.SetSolved(solvedRoom, true);
+			GetComponent<CardboardAudioSource>().Play();
 		} else {
 			GameManager.Instance.LoseGame();
 		}
 	}
 
 	public void UpdateVisuals(){
-		GetComponent<Renderer>().material.color = isGazedAt ? Color.yellow : Color.white;
+		GetComponent<Renderer>().material.color = isGazedAt ? Color.yellow : originalColor;
 	}
 
 

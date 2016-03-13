@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour {
 						PlayerController.Instance.currentRoom = Room.RoomType.Control;
 					} else if(PlayerController.Instance.player == PlayerController.PlayerType.B){
 						PlayerController.Instance.currentRoom = Room.RoomType.Briefcase;
+						PlayerController.Instance.transform.position = new Vector3(0, 2.441f, -0.9349999f);
+
 					}
 				}
 			break;
@@ -60,11 +62,6 @@ public class GameManager : MonoBehaviour {
 
 			break;
 		}
-
-		for(int i = 0; i < 3; i++){
-			Debug.Log("i: " + i + " " + puzzlesSolved[i]);	
-		}
-		
 	}
 
 	public void ResetTimer(){
@@ -98,6 +95,12 @@ public class GameManager : MonoBehaviour {
 
 	public void SetSolved(Room.RoomType room, bool isSolved){
 		switch(room){
+			case Room.RoomType.Maze:
+				puzzlesSolved[0] = isSolved;
+			break;
+			case Room.RoomType.Wire:
+				puzzlesSolved[1] = isSolved;
+			break;
 			case Room.RoomType.Riddle:
 				puzzlesSolved[2] = isSolved;
 			break;
