@@ -97,14 +97,25 @@ public class GameManager : MonoBehaviour {
 		switch(room){
 			case Room.RoomType.Maze:
 				puzzlesSolved[0] = isSolved;
+				BriefcaseController.Instance.SetLED(BriefcaseController.LED.Maze, true);
 			break;
 			case Room.RoomType.Wire:
 				puzzlesSolved[1] = isSolved;
+				BriefcaseController.Instance.SetLED(BriefcaseController.LED.Wire, true);
 			break;
 			case Room.RoomType.Riddle:
 				puzzlesSolved[2] = isSolved;
+				BriefcaseController.Instance.SetLED(BriefcaseController.LED.Riddle, true);
 			break;
 		}
+	}
+
+	public bool ArePuzzlesCompleted(){
+		if(puzzlesSolved[0] && puzzlesSolved[1] && puzzlesSolved[2]){
+			return true;
+		}
+
+		return false;
 	}
 
 	public void LoseGame(){
