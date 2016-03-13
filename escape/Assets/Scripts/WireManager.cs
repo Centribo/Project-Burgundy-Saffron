@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class WireManager : MonoBehaviour {
 
-	public List<GameObject> wires;
+	public List<WireController> wires;
 	public Text clockText;
 
 	int currentDigit; //What is our current digit?
