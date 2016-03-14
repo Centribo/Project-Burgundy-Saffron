@@ -6,11 +6,11 @@
 # Screenshots:
 ![Example](Screenshots/ss_1.png?raw=true "Screenshot 1")
 
-![Example](Screenshots/ss_1.png?raw=true "Screenshot 2")
+![Example](Screenshots/ss_2.png?raw=true "Screenshot 2")
 
-![Example](Screenshots/ss_1.png?raw=true "Screenshot 3")
+![Example](Screenshots/ss_3.png?raw=true "Screenshot 3")
 
-![Example](Screenshots/ss_1.png?raw=true "Screenshot 4")
+![Example](Screenshots/ss_4.png?raw=true "Screenshot 4")
 
 # Main Credits:
 ### Adam Leung (www.centribo.com)
