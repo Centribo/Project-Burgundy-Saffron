@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void StartCountdown(){
-		Transform canvasParent = GameObject.Find("Canvas").transform;
+		Transform canvasParent = GameObject.Find("Menu Canvas").transform;
 
 		for(int i = canvasParent.childCount-1; i >= 0; i--){
 			if(canvasParent.GetChild(i).name != "CountdownText"){
