@@ -6,5 +6,10 @@ A co-operative virtual reality experience made in Unity for Google Cardboard
 Music:
 "Space For Love" by Jay Man (https://ourmusicbox.com)
 
+
+
 Adam Leung (www.centribo.com)
+
 Max Elendt (www.xelendt.com)
+
+Created at NHacks 2016
