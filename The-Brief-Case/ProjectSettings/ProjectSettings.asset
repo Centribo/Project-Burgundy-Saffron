@@ -9,8 +9,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: escape
+  companyName: Centribo
+  productName: The Brief-Case
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -158,8 +158,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: E:/Folders/Git/Android App Keystores/The_Brief-Case.keystore
+  AndroidKeyaliasName: the brief-case
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1

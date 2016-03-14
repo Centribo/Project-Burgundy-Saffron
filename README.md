@@ -1,7 +1,7 @@
-## The Brief-Case
-#### A co-operative virtual reality experience made in Unity for Google Cardboard.
 
 ![Example](Screenshots/Banner.png?raw=true "Logo")
+#### A co-operative virtual reality experience made in Unity for Google Cardboard.
+
 
 # Screenshots:
 ![Example](Screenshots/ss_1.png?raw=true "Screenshot 1")
