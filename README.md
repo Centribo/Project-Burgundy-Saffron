@@ -1,7 +1,7 @@
 
 ![Example](Screenshots/Banner.png?raw=true "Logo")
 #### A co-operative virtual reality experience made in Unity for Google Cardboard.
-
+Download and play the game on the [Google Play Store here.](https://play.google.com/store/apps/details?id=com.Centribo.The_Brief_Case)
 
 # Screenshots:
 ![Example](Screenshots/ss_1.png?raw=true "Screenshot 1")
